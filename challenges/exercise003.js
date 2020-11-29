@@ -5,7 +5,11 @@ function getSquares(nums) {
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Your code here!
+  var newWord = words[0];
+  for (i = 1; i < words.length; i++) {
+    newWord = newWord + words[i].charAt(0).toUpperCase() + words[i].substring(1, words[i].length);
+  }
+  return newWord;
 }
 
 function getTotalSubjects(people) {
