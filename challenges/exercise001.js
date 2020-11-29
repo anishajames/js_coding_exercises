@@ -45,12 +45,21 @@ function getMiddleCharacter(str) {
 
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
-  // Add your code here!
+  var reverseString = word.split("");
+  reverseString.reverse();
+  return reverseString.join("");
 }
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Add your code here!
+  var reverseString;
+  var reversedWords = new Array();
+  for(i = 0; i<words.length; i++){
+    reverseString = words[i].split("");
+    reverseString.reverse();
+    reversedWords.push(reverseString.join(""));
+  }
+  return reversedWords;
 }
 
 function countLinuxUsers(users) {
