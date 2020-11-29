@@ -22,7 +22,7 @@ function addVAT(originalPrice, vatRate) {
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-    var salePrice = parseFloat(originalPrice-originalPrice*reduction/100);
+  var salePrice = parseFloat(originalPrice-originalPrice*reduction/100);
   if (salePrice == Math.floor(salePrice))  
     return parseFloat(salePrice);
   else 
