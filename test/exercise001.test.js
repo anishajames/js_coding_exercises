@@ -48,7 +48,7 @@ describe("addVAT", () => {
   });
 });
 
-xdescribe("getSalePrice", () => {
+describe("getSalePrice", () => {
   test("reduces a price of 100 by 50%", () => {
     expect(getSalePrice(100, 50)).toBe(50);
   });
