@@ -82,7 +82,7 @@ function getSquareRoots(nums) {
   /*let newArr = [];
   nums.forEach(function (num) {
     const sqrtNum = Math.sqrt(num);
-    newArr.push(parseFloat(sqrtNum.toFixed(2)));
+    newArr.push(parseFloat(sqrtNum.toFixed(2))); 
   });
   return newArr;
   */
