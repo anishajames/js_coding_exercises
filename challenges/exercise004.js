@@ -1,47 +1,79 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  let newArr = [];
+  //forEach Implementation
+  /* let newArr = [];
   nums.forEach(function (num) {
     if (num < 1)
       newArr.push(num);
   });
   return newArr;
+  */
+  var result = nums.filter(function (val) {
+    return val < 1;
+  });
+
+  return result;
 }
 
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  let newArr = [];
+  //forEach Implementation
+  /*let newArr = [];
   names.forEach(function (name) {
     if (name.charAt(0) == char)
       newArr.push(name);
   });
   return newArr;
+*/
+  var result = names.filter(function (name) {
+    return name.charAt(0) == char;
+  });
+
+  return result;
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  let newArr = [];
+  //forEach Implementation
+  /*let newArr = [];
   words.forEach(function (word) {
     if (word.startsWith("to "))
       newArr.push(word);
   });
   return newArr;
+*/
+  var result = words.filter(function (word) {
+    return word.startsWith("to ");
+  });
+
+  return result;
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  let newArr = [];
-  nums.forEach(function (num) {
-    if (Number.isInteger(num))
-      newArr.push(num);
+  //forEach Implementation
+  /*  let newArr = [];
+    nums.forEach(function (num) {
+      if (Number.isInteger(num))
+        newArr.push(num);
+    });
+    return newArr;
+  */
+  var result = nums.filter(function (num) {
+    return Number.isInteger(num);
   });
-  return newArr;
+
+  return result;
 }
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  // Your code here
+  let newArr = [];
+  users.forEach(function (user) {
+    newArr.push(user.data.city.displayName);
+  });
+  return newArr;
 }
 
 function getSquareRoots(nums) {
