@@ -78,7 +78,12 @@ function getCities(users) {
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  let newArr = [];
+  nums.forEach(function (num) {
+    const sqrtNum = Math.sqrt(num);
+    newArr.push(parseFloat(sqrtNum.toFixed(2)));
+  });
+  return newArr;
 }
 
 function findSentencesContaining(sentences, str) {
