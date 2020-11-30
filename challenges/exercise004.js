@@ -1,8 +1,8 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
   let newArr = [];
-  nums.forEach(function(num){
-    if(num <1)
+  nums.forEach(function (num) {
+    if (num < 1)
       newArr.push(num);
   });
   return newArr;
@@ -11,7 +11,12 @@ function findSmallNums(nums) {
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  // Your code here
+  let newArr = [];
+  names.forEach(function (name) {
+    if (name.charAt(0) == char)
+      newArr.push(name);
+  });
+  return newArr;
 }
 
 function findVerbs(words) {
