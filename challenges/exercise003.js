@@ -1,13 +1,13 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  if(nums.length == 0)  
+  if (nums.length == 0)
     return nums;
-  else{
+  else {
     for (i = 0; i < nums.length; i++) {
-      nums[i] = nums[i]*nums[i];
+      nums[i] = nums[i] * nums[i];
     }
     return nums;
-  } 
+  }
 
 }
 
@@ -24,7 +24,7 @@ function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
   var count = 0;
   for (i = 0; i < people.length; i++) {
-    if (people[i].subjects.length >0)
+    if (people[i].subjects.length > 0)
       count = count + people[i].subjects.length;
   }
   return count;
@@ -35,17 +35,37 @@ function checkIngredients(menu, ingredient) {
   if (!ingredient) throw new Error("ingredient is required");
   for (i = 0; i < menu.length; i++) {
     for (j = 0; j < menu[i].ingredients.length; j++) {
-      if ( menu[i].ingredients[j] == ingredient)
+      if (menu[i].ingredients[j] == ingredient)
         return true;
     }
   }
   return false;
- }
+}
 
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  // Your code here!
+  arr1.sort();                    // Sort both the arrays
+  arr2.sort();
+  var common = [];                  // Array to contain common elements
+  var i = 0, j = 0;
+  // Break if one of them runs out
+  while (i < arr1.length && j < arr2.length) {
+
+    if (arr1[i] == arr2[j]) {        // If both are same, add it to result
+      common.push(arr1[i]);
+      i++;
+      j++;
+    }
+    else if (arr1[i] < arr2[j]) {  // Increment the smaller value so that
+      i++;                        // it could be matched with the larger
+    }                             // element
+    else {
+      j++;
+    }
+  }
+
+  return common;
 }
 
 module.exports = {
