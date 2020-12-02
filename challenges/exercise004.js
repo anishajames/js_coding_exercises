@@ -95,7 +95,15 @@ function getSquareRoots(nums) {
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  // Your code here
+  
+  let newArr = [];
+  sentences.forEach(function (sentence) {
+    if (sentence.toLowerCase().indexOf(str.toLowerCase()) > -1) {
+      newArr.push(sentence);
+    }
+  });
+  return newArr;
+  
 }
 
 function getLongestSides(triangles) {
