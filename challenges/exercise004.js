@@ -95,7 +95,7 @@ function getSquareRoots(nums) {
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  
+
   let newArr = [];
   sentences.forEach(function (sentence) {
     if (sentence.toLowerCase().indexOf(str.toLowerCase()) > -1) {
@@ -103,12 +103,22 @@ function findSentencesContaining(sentences, str) {
     }
   });
   return newArr;
-  
+
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  // Your code here
+  //forEach implementation
+  /*let newArr = [];
+  triangles.forEach(function (triangle) {
+    newArr.push(Math.max.apply(Math, triangle)); 
+  });
+  return newArr;
+  */
+  const largestNums = triangles.map(function (triangle) {
+    return Math.max.apply(Math, triangle);
+  });
+  return largestNums;
 }
 
 module.exports = {
