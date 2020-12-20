@@ -12,17 +12,17 @@ function generateInitials(firstName, lastName) {
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  var addVAT = originalPrice * vatRate / 100 + originalPrice;
-  if (addVAT == Math.floor(addVAT))
-    return parseFloat(addVAT);
+  const addVATPrice= originalPrice * vatRate / 100 + originalPrice;
+  if (addVATPrice == Math.floor(addVATPrice))
+    return parseFloat(addVATPrice);
   else
-    return parseFloat(addVAT.toFixed(2));
+    return parseFloat(addVATPrice.toFixed(2));
 }
 
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-  var salePrice = parseFloat(originalPrice - originalPrice * reduction / 100);
+  const salePrice = parseFloat(originalPrice - originalPrice * reduction / 100);
   if (salePrice == Math.floor(salePrice))
     return parseFloat(salePrice);
   else
@@ -31,8 +31,8 @@ function getSalePrice(originalPrice, reduction) {
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-  var position;
-  var length;
+  let position;
+  let length;
   if (str.length % 2 == 1) {
     position = str.length / 2;
     length = 1;
@@ -45,16 +45,14 @@ function getMiddleCharacter(str) {
 
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
-  var reverseString = word.split("");
-  reverseString.reverse();
-  return reverseString.join("");
+  return  word.split("").reverse().join("");
 }
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  var reverseString;
-  var reversedWords = new Array();
-  for (i = 0; i < words.length; i++) {
+  let reverseString;
+  let reversedWords = new Array();
+  for (let i = 0; i < words.length; i++) {
     reverseString = words[i].split("");
     reverseString.reverse();
     reversedWords.push(reverseString.join(""));
@@ -64,8 +62,8 @@ function reverseAllWords(words) {
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  var count = 0;
-  for (i = 0; i < users.length; i++) {
+  let count = 0;
+  for (let i = 0; i < users.length; i++) {
     if (users[i].type == "Linux") {
       count++;
     }
@@ -76,8 +74,8 @@ function countLinuxUsers(users) {
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  var sum = 0, meanVal = 0;
-  for (i = 0; i < scores.length; i++) {
+  let sum = 0, meanVal = 0;
+  for (let i = 0; i < scores.length; i++) {
     sum += scores[i];
   }
   meanVal = sum / scores.length;
