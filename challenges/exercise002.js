@@ -15,8 +15,8 @@ function getBusNumbers(people) {
 
 function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
-  var count = 0;
-  for (i = 0; i < arr.length; i++) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i].toLowerCase() == "sheep") {
       count++;
     }

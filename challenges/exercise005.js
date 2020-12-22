@@ -1,28 +1,28 @@
-const findNextNumber = (nums, n) => {
-  if (nums === undefined) throw new Error("nums is required");
-  if (n === undefined) throw new Error("n is required");
-  // if the number exists in the array and is not the last element in the array
-    // get position of given number in the array and find number in next position
-  // else return null
-  return nums.includes(n) && nums.indexOf(n) != nums.length-1 ? nums[nums.indexOf(n)+1] : null;
-  };
+const findNextNumber = (nums, n) =>
+  nums.includes(n) && nums.indexOf(n) != nums.length - 1
+    ? nums[nums.indexOf(n) + 1]
+    : null;
 
-const count1sand0s = str => {
+const count1sand0s = (str) => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+  const occurrences = { 1: 0, 0: 0 };
+  str.split("").map((num) => {
+    occurrences[num] += 1;
+  });
+  return occurrences;
 };
 
-const reverseNumber = n => {
+const reverseNumber = (n) => {
   if (n === undefined) throw new Error("n is required");
   // Your code here!
 };
 
-const sumArrays = arrs => {
+const sumArrays = (arrs) => {
   if (arrs === undefined) throw new Error("arrs is required");
   // Your code here!
 };
 
-const arrShift = arr => {
+const arrShift = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
   // Your code here!
 };
@@ -33,7 +33,7 @@ const findNeedle = (haystack, searchTerm) => {
   // Your code here!
 };
 
-const getWordFrequencies = str => {
+const getWordFrequencies = (str) => {
   if (str === undefined) throw new Error("str is required");
   // Your code here!
 };
@@ -45,5 +45,5 @@ module.exports = {
   sumArrays,
   arrShift,
   findNeedle,
-  getWordFrequencies
+  getWordFrequencies,
 };

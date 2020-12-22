@@ -3,7 +3,7 @@ function getSquares(nums) {
   if (nums.length == 0)
     return nums;
   else {
-    for (i = 0; i < nums.length; i++) {
+    for (let i = 0; i < nums.length; i++) {
       nums[i] = nums[i] * nums[i];
     }
     return nums;
@@ -13,8 +13,8 @@ function getSquares(nums) {
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-  var newWord = words[0];
-  for (i = 1; i < words.length; i++) {
+  let newWord = words[0];
+  for (let i = 1; i < words.length; i++) {
     newWord = newWord + words[i].charAt(0).toUpperCase() + words[i].substring(1, words[i].length);
   }
   return newWord;
@@ -22,8 +22,8 @@ function camelCaseWords(words) {
 
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
-  var count = 0;
-  for (i = 0; i < people.length; i++) {
+  let count = 0;
+  for (let i = 0; i < people.length; i++) {
     if (people[i].subjects.length > 0)
       count = count + people[i].subjects.length;
   }
@@ -33,8 +33,8 @@ function getTotalSubjects(people) {
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  for (i = 0; i < menu.length; i++) {
-    for (j = 0; j < menu[i].ingredients.length; j++) {
+  for (let i = 0; i < menu.length; i++) {
+    for (let j = 0; j < menu[i].ingredients.length; j++) {
       if (menu[i].ingredients[j] == ingredient)
         return true;
     }
@@ -47,8 +47,8 @@ function duplicateNumbers(arr1, arr2) {
   if (arr2 === undefined) throw new Error("arr2 is required");
   arr1.sort();                    // Sort both the arrays
   arr2.sort();
-  var common = [];                  // Array to contain common elements
-  var i = 0, j = 0;
+  let common = [];                  // Array to contain common elements
+  let i = 0, j = 0;
   // Break if one of them runs out
   while (i < arr1.length && j < arr2.length) {
 
