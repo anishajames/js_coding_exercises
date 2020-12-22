@@ -5,7 +5,7 @@ const {
   sumArrays,
   arrShift,
   findNeedle,
-  getWordFrequencies
+  getWordFrequencies,
 } = require("../challenges/exercise005");
 
 describe("findNextNumber", () => {
@@ -32,27 +32,27 @@ describe("count1sand0s", () => {
   test("returns an object with the count of 1s and 0s in a string", () => {
     expect(count1sand0s("11000")).toEqual({
       1: 2,
-      0: 3
+      0: 3,
     });
 
     expect(count1sand0s("0101010111")).toEqual({
       1: 6,
-      0: 4
+      0: 4,
     });
 
     expect(count1sand0s("1111111")).toEqual({
       1: 7,
-      0: 0
+      0: 0,
     });
 
     expect(count1sand0s("0111")).toEqual({
       1: 3,
-      0: 1
+      0: 1,
     });
   });
 });
 
-xdescribe("reverseNumber", () => {
+describe("reverseNumber", () => {
   test("reverses the digits of a number", () => {
     expect(reverseNumber(5)).toBe(5);
     expect(reverseNumber(104)).toBe(401);
@@ -88,7 +88,7 @@ xdescribe("findNeedle", () => {
       description: "Small round table",
       price: 31.89,
       store: "Warrington",
-      code: 12872
+      code: 12872,
     };
     expect(findNeedle(obj1, "table")).toBe(true);
 
@@ -98,7 +98,7 @@ xdescribe("findNeedle", () => {
       price: 1.99,
       location: "Hulme",
       discounted: false,
-      available: true
+      available: true,
     };
     expect(findNeedle(obj2, "Dishwasher")).toBe(true);
   });
@@ -109,7 +109,7 @@ xdescribe("findNeedle", () => {
       description: "Small round table",
       price: 31.89,
       store: "Warrington",
-      code: 12872
+      code: 12872,
     };
     expect(findNeedle(obj1, "chair")).toBe(false);
 
@@ -119,7 +119,7 @@ xdescribe("findNeedle", () => {
       price: 1.99,
       location: "Hulme",
       discounted: false,
-      available: true
+      available: true,
     };
     expect(findNeedle(obj2, "Carpet Cleaner")).toBe(false);
   });
@@ -130,7 +130,7 @@ xdescribe("findNeedle", () => {
       description: "Small round table",
       price: 31.89,
       store: "Warrington",
-      code: 12872
+      code: 12872,
     };
 
     expect(findNeedle(obj1, "warrington")).toBe(true);
@@ -143,7 +143,7 @@ xdescribe("getWordFrequencies", () => {
   test("returns the frequencies of each word in a string", () => {
     expect(getWordFrequencies("hello world")).toEqual({
       hello: 1,
-      world: 1
+      world: 1,
     });
 
     expect(getWordFrequencies("the cat is hairier than the rat")).toEqual({
@@ -152,17 +152,17 @@ xdescribe("getWordFrequencies", () => {
       is: 1,
       hairier: 1,
       than: 1,
-      rat: 1
+      rat: 1,
     });
 
     expect(getWordFrequencies("hello hello hello")).toEqual({
-      hello: 3
+      hello: 3,
     });
   });
 
   test("ignores capitalisation", () => {
     expect(getWordFrequencies("Hello hello hello")).toEqual({
-      hello: 3
+      hello: 3,
     });
   });
 
@@ -175,7 +175,7 @@ xdescribe("getWordFrequencies", () => {
       what: 1,
       have: 1,
       we: 1,
-      here: 1
+      here: 1,
     });
   });
 });
