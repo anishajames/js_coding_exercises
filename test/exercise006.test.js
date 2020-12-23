@@ -3,6 +3,7 @@ const {
   isValidDNA,
   getComplementaryDNA,
   isItPrime,
+  createMatrix,
 } = require("../challenges/exercise006");
 
 describe("sumMultiples", () => {
@@ -106,5 +107,76 @@ describe("isItPrime", () => {
     expect(isItPrime(1)).toBe(false);
     expect(isItPrime(9)).toBe(false);
     expect(isItPrime(26)).toBe(false);
+  });
+});
+
+describe("createMatrix", () => {
+  test("throws an error if no number is passed", () => {
+    expect(() => {
+      createMatrix();
+    }).toThrow("n is required");
+
+    expect(() => {
+      createMatrix(5);
+    }).toThrow("fill is required");
+
+    expect(() => {
+      createMatrix("", "foo");
+    }).toThrow("n is required");
+
+    expect(() => {
+      createMatrix(5, "");
+    }).toThrow("fill is required");
+  });
+
+  test("returns empty matrix when n is 0", () => {});
+
+  test("returns single element matrix when n is 1", () => {
+    expect(createMatrix(1, "test")).toEqual(["test"]);
+  });
+
+  test("returns an array of arrays", () => {
+    expect(createMatrix(2, "test")).toEqual([
+      ["test", "test"],
+      ["test", "test"],
+    ]);
+
+    expect(createMatrix(5, "the yellow cat")).toEqual([
+      [
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+      ],
+      [
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+      ],
+      [
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+      ],
+      [
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+      ],
+      [
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+        "the yellow cat",
+      ],
+    ]);
   });
 });
