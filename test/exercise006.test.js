@@ -129,10 +129,12 @@ describe("createMatrix", () => {
     }).toThrow("fill is required");
   });
 
-  test("returns empty matrix when n is 0", () => {});
+  test("returns empty matrix when n is 0", () => {
+    expect(createMatrix(0, "test")).toEqual([]);
+  });
 
   test("returns single element matrix when n is 1", () => {
-    expect(createMatrix(1, "test")).toEqual(["test"]);
+    expect(createMatrix(1, "test")).toEqual([["test"]]);
   });
 
   test("returns an array of arrays", () => {
