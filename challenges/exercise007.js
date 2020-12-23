@@ -2,8 +2,13 @@
  * This function takes a number, e.g. 123 and returns the sum of all its digits, e.g 6 in this example.
  * @param {Number} n
  */
-const sumDigits = n => {
-  if (n === undefined) throw new Error("n is required");
+const sumDigits = (n) => {
+  if (n === undefined || !Number.isInteger(n)) throw new Error("n is required");
+  return n
+    .toString()
+    .split("")
+    .map((item) => parseInt(item))
+    .reduce((a, b) => a + b);
 };
 
 /**
@@ -63,7 +68,7 @@ const getScreentimeAlertList = (users, date) => {
  * Hint: You will need to convert each hexadecimal value for R, G and B into its decimal equivalent!
  * @param {String} str
  */
-const hexToRGB = hexStr => {
+const hexToRGB = (hexStr) => {
   if (hexStr === undefined) throw new Error("hexStr is required");
 };
 
@@ -77,7 +82,7 @@ const hexToRGB = hexStr => {
  * The function should return "X" if player X has won, "0" if the player 0 has won, and null if there is currently no winner.
  * @param {Array} board
  */
-const findWinner = board => {
+const findWinner = (board) => {
   if (board === undefined) throw new Error("board is required");
 };
 
@@ -86,5 +91,5 @@ module.exports = {
   createRange,
   getScreentimeAlertList,
   hexToRGB,
-  findWinner
+  findWinner,
 };
