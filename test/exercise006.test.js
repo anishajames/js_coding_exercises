@@ -1,5 +1,9 @@
 const { TestScheduler } = require("jest");
-const { sumMultiples, isValidDNA } = require("../challenges/exercise006");
+const {
+  sumMultiples,
+  isValidDNA,
+  getComplementaryDNA,
+} = require("../challenges/exercise006");
 
 describe("sumMultiples", () => {
   test("throws an error if not passed an array", () => {
@@ -43,5 +47,26 @@ describe("isValidDNA", () => {
   test("returns true if valid DNA", () => {
     expect(isValidDNA("DNDJCDEKJSDYJDB")).toBe(true);
     expect(isValidDNA("skkioutcopa")).toBe(true);
+  });
+});
+
+describe("getComplementaryDNA", () => {
+  test("throws an error if no string is passed", () => {
+    expect(() => {
+      getComplementaryDNA();
+    }).toThrow("str is required");
+
+    expect(() => {
+      getComplementaryDNA("");
+    }).toThrow("str is required");
+  });
+
+  test("returns complementary base pair", () => {
+    expect(getComplementaryDNA("C")).toBe("G");
+    expect(getComplementaryDNA("G")).toBe("C");
+    expect(getComplementaryDNA("T")).toBe("A");
+    expect(getComplementaryDNA("A")).toBe("T");
+    expect(getComplementaryDNA("CTAG")).toBe("GATC");
+    expect(getComplementaryDNA("CAATTC")).toBe("GTTAAG");
   });
 });

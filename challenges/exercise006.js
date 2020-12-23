@@ -29,7 +29,7 @@ const isValidDNA = (str) => {
  * @returns {String}
  */
 const getComplementaryDNA = (str) => {
-  if (str === undefined) throw new Error("str is required");
+  if (str === undefined || str === "") throw new Error("str is required");
 };
 
 /**
