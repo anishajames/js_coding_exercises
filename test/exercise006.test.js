@@ -93,4 +93,18 @@ describe("isItPrime", () => {
       isItPrime(true);
     }).toThrow("input is not an integer");
   });
+
+  test("returns true if its prime", () => {
+    expect(isItPrime(2)).toBe(true);
+    expect(isItPrime(3)).toBe(true);
+    expect(isItPrime(7)).toBe(true);
+    expect(isItPrime(19)).toBe(true);
+  });
+
+  test("returns false if its not prime", () => {
+    expect(isItPrime(0)).toBe(false);
+    expect(isItPrime(1)).toBe(false);
+    expect(isItPrime(9)).toBe(false);
+    expect(isItPrime(26)).toBe(false);
+  });
 });
