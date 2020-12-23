@@ -20,8 +20,9 @@ const sumDigits = (n) => {
  * @param {Number} step
  */
 const createRange = (start, end, step) => {
-  if (start === undefined) throw new Error("start is required");
-  if (end === undefined) throw new Error("end is required");
+  if (start === undefined || start === "") throw new Error("start is required");
+  if (end === undefined || end === "") throw new Error("end is required");
+  if (start === end) throw new Error("start and end cannot be the same");
 };
 
 /**
