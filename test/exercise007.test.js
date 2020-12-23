@@ -73,3 +73,28 @@ describe("createRange", () => {
     expect(createRange(0, 9)).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
   });
 });
+
+describe("getScreentimeAlertList", () => {
+  test("throws an error if users is missing", () => {
+    expect(() => {
+      getScreentimeAlertList();
+    }).toThrow("users is required");
+
+    expect(() => {
+      getScreentimeAlertList([]);
+    }).toThrow("users is required");
+
+    expect(() => {
+      getScreentimeAlertList("foo");
+    }).toThrow("users is required");
+  });
+
+  test("throws an error if date is missing", () => {
+    const users = [
+      { username: "sam_j_1989", name: "Sam Jones", screenTime: [] },
+    ];
+    expect(() => {
+      getScreentimeAlertList(users);
+    }).toThrow("date is required");
+  });
+});
