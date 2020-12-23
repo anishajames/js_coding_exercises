@@ -30,6 +30,13 @@ const isValidDNA = (str) => {
  */
 const getComplementaryDNA = (str) => {
   if (str === undefined || str === "") throw new Error("str is required");
+  var mapChar = {
+    A: "T",
+    C: "G",
+    T: "A",
+    G: "C",
+  };
+  return str.toUpperCase().replace(/[ATGC]/gi, (m) => mapChar[m]);
 };
 
 /**
