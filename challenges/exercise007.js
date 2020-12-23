@@ -23,6 +23,10 @@ const createRange = (start, end, step) => {
   if (start === undefined || start === "") throw new Error("start is required");
   if (end === undefined || end === "") throw new Error("end is required");
   if (start === end) throw new Error("start and end cannot be the same");
+  if (step === undefined) step = 1;
+  let numRange = [];
+  for (let i = start; i <= end; i += step) numRange.push(i);
+  return numRange;
 };
 
 /**

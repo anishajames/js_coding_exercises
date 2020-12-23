@@ -64,12 +64,12 @@ describe("createRange", () => {
   });
 
   test("returns a range of numbers when start, end and step are provided", () => {
-    expect(createRange(5, 15, 5)).toBe([5, 10, 15]);
-    expect(createRange(0, 6, 2)).toBe([0, 2, 4, 6]);
+    expect(createRange(5, 15, 5)).toEqual([5, 10, 15]);
+    expect(createRange(0, 6, 2)).toEqual([0, 2, 4, 6]);
   });
 
   test("returns a range of numbers when start and end are provided", () => {
-    expect(createRange(7, 11)).toBe([7, 8, 9, 10, 11]);
-    expect(createRange(0, 9)).toBe([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    expect(createRange(7, 11)).toEqual([7, 8, 9, 10, 11]);
+    expect(createRange(0, 9)).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
   });
 });
