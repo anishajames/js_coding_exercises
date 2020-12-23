@@ -4,6 +4,7 @@ const {
   getComplementaryDNA,
   isItPrime,
   createMatrix,
+  areWeCovered,
 } = require("../challenges/exercise006");
 
 describe("sumMultiples", () => {
@@ -180,5 +181,114 @@ describe("createMatrix", () => {
         "the yellow cat",
       ],
     ]);
+  });
+});
+
+describe("areWeCovered", () => {
+  test("throws an error if no staff is passed", () => {
+    expect(() => {
+      areWeCovered([], "Monday");
+    }).toThrow("staff is required");
+  });
+
+  test("throws an error if no day is passed", () => {
+    expect(() => {
+      areWeCovered(
+        { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+        ""
+      );
+    }).toThrow("day is required");
+  });
+
+  test("returns false if enough staff not available", () => {
+    expect(
+      areWeCovered(
+        [{ name: "Sally", rota: ["Monday", "Tuesday", "Friday"] }],
+        "Monday"
+      )
+    ).toBe(false);
+
+    expect(
+      areWeCovered(
+        [
+          { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+          {
+            name: "Pedro",
+            rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"],
+          },
+        ],
+        "Monday"
+      )
+    ).toBe(false);
+
+    expect(
+      areWeCovered(
+        [
+          { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+          { name: "James", rota: ["Monday", "Tuesday", "Friday"] },
+          {
+            name: "Pedro",
+            rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"],
+          },
+        ],
+        "Friday"
+      )
+    ).toBe(false);
+
+    expect(
+      areWeCovered(
+        [
+          { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+          { name: "James", rota: ["Monday", "Tuesday", "Friday"] },
+          { name: "Susan", rota: ["Monday", "Tuesday", "Friday"] },
+          {
+            name: "Pedro",
+            rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"],
+          },
+        ],
+        "Sunday"
+      )
+    ).toBe(false);
+  });
+
+  test("returns true if enough staff available", () => {
+    expect(
+      areWeCovered(
+        [
+          { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+          { name: "James", rota: ["Monday", "Tuesday", "Friday"] },
+          { name: "Susan", rota: ["Monday", "Tuesday", "Friday"] },
+        ],
+        "Friday"
+      )
+    ).toBe(true);
+
+    expect(
+      areWeCovered(
+        [
+          { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+          { name: "James", rota: ["Monday", "Tuesday", "Friday"] },
+          { name: "Susan", rota: ["Monday", "Tuesday", "Friday"] },
+          {
+            name: "Pedro",
+            rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"],
+          },
+        ],
+        "Tuesday"
+      )
+    ).toBe(true);
+
+    expect(
+      areWeCovered(
+        [
+          { name: "Sally", rota: ["Monday"] },
+          { name: "James", rota: ["Friday"] },
+          { name: "Susan", rota: ["Tuesday", "Friday"] },
+          { name: "Pedro", rota: ["Saturday"] },
+          { name: "Phil", rota: ["Friday"] },
+        ],
+        "Friday"
+      )
+    ).toBe(true);
   });
 });
