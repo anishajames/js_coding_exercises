@@ -1,8 +1,8 @@
-const { TestScheduler } = require("jest");
 const {
   sumMultiples,
   isValidDNA,
   getComplementaryDNA,
+  isItPrime,
 } = require("../challenges/exercise006");
 
 describe("sumMultiples", () => {
@@ -68,5 +68,29 @@ describe("getComplementaryDNA", () => {
     expect(getComplementaryDNA("A")).toBe("T");
     expect(getComplementaryDNA("CTAG")).toBe("GATC");
     expect(getComplementaryDNA("CAATTC")).toBe("GTTAAG");
+  });
+});
+
+describe("isItPrime", () => {
+  test("throws an error if no number is passed", () => {
+    expect(() => {
+      isItPrime();
+    }).toThrow("number is required");
+
+    expect(() => {
+      isItPrime("");
+    }).toThrow("number is required");
+
+    expect(() => {
+      isItPrime(1.23);
+    }).toThrow("input is not an integer");
+
+    expect(() => {
+      isItPrime("foo");
+    }).toThrow("input is not an integer");
+
+    expect(() => {
+      isItPrime(true);
+    }).toThrow("input is not an integer");
   });
 });
