@@ -62,6 +62,15 @@ const getScreentimeAlertList = (users, date) => {
   if (users === undefined || !Array.isArray(users) || users.length === 0)
     throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  return users
+    .filter((user) =>
+      user.screenTime.find(
+        (item) =>
+          item.date === date &&
+          Object.values(item.usage).reduce((a, b) => a + b) >= 100
+      )
+    )
+    .map((result) => result.username);
 };
 
 /**
