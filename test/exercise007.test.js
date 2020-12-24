@@ -280,3 +280,25 @@ describe("getScreentimeAlertList", () => {
     expect(getScreentimeAlertList(users, "2019-05-02")).toEqual(["beth_1234"]);
   });
 });
+
+describe("hexToRGB", () => {
+  test("throws an error if hexadecimal code is missing", () => {
+    expect(() => {
+      hexToRGB();
+    }).toThrow("hexStr is required");
+
+    expect(() => {
+      hexToRGB("");
+    }).toThrow("hexStr is required");
+
+    expect(() => {
+      hexToRGB("1234");
+    }).toThrow("hexStr is required");
+  });
+
+  test("transforms the hex code into an RGB code", () => {
+    expect(hexToRGB("#FF1133")).toBe("rgb(255,17,51)");
+    expect(hexToRGB("#BF12DE")).toBe("rgb(191,18,222)");
+    expect(hexToRGB("#ABCDEF")).toBe("rgb(171,205,239)");
+  });
+});
