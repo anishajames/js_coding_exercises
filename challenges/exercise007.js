@@ -103,7 +103,11 @@ const hexToRGB = (hexStr) => {
  * @param {Array} board
  */
 const findWinner = (board) => {
-  if (board === undefined) throw new Error("board is required");
+  if (board === undefined || board.length === 0)
+    throw new Error("board is required");
+  board.filter((item) => {
+    if (item.length !== 3) throw new Error("board is not valid");
+  });
 };
 
 module.exports = {

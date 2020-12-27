@@ -308,5 +308,14 @@ describe("findWinner", () => {
     expect(() => {
       findWinner();
     }).toThrow("board is required");
+
+    expect(() => {
+      findWinner([]);
+    }).toThrow("board is required");
+
+    const board = [["X", null]];
+    expect(() => {
+      findWinner(board);
+    }).toThrow("board is not valid");
   });
 });
