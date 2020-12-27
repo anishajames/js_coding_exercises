@@ -318,4 +318,75 @@ describe("findWinner", () => {
       findWinner(board);
     }).toThrow("board is not valid");
   });
+
+  const winnerX1 = [
+    [
+      ["X", "0", "0"],
+      ["X", null, "0"],
+      ["X", null, null],
+    ],
+  ];
+
+  const winnerX2 = [
+    [
+      ["X", null, "0"],
+      [null, "X", "0"],
+      ["0", null, "X"],
+    ],
+  ];
+
+  const winnerX3 = [
+    [
+      ["0", null, null],
+      ["0", null, "0"],
+      ["X", "X", "X"],
+    ],
+  ];
+
+  test("X is the winner", () => {
+    expect(findWinner(winnerX1)).toBe("x");
+    expect(findWinner(winnerX2)).toBe("x");
+    expect(findWinner(winnerX3)).toBe("x");
+  });
+
+  const winner01 = [
+    [
+      ["X", null, "0"],
+      [null, null, "0"],
+      ["X", null, "0"],
+    ],
+  ];
+
+  const winner02 = [
+    [
+      ["X", null, "0"],
+      [null, "0", "X"],
+      ["0", null, "X"],
+    ],
+  ];
+
+  const winner03 = [
+    [
+      ["X", null, "X"],
+      [null, null, "X"],
+      ["0", "0", "0"],
+    ],
+  ];
+
+  test("0 is the winner", () => {
+    expect(findWinner(winner01)).toBe("0");
+    expect(findWinner(winner02)).toBe("0");
+    expect(findWinner(winner03)).toBe("0");
+  });
+
+  const noWinner = [
+    [
+      ["X", "0", "X"],
+      ["0", "X", "X"],
+      ["X", "0", "0"],
+    ],
+  ];
+  test("There is no winner", () => {
+    expect(findWinner(noWinner)).toBe(null);
+  });
 });
