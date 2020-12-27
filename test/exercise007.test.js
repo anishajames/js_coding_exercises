@@ -302,3 +302,11 @@ describe("hexToRGB", () => {
     expect(hexToRGB("#ABCDEF")).toBe("rgb(171,205,239)");
   });
 });
+
+describe("findWinner", () => {
+  test("throws an error if board is missing", () => {
+    expect(() => {
+      findWinner();
+    }).toThrow("board is required");
+  });
+});
