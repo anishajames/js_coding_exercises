@@ -30,7 +30,7 @@ const isValidDNA = (str) => {
  */
 const getComplementaryDNA = (str) => {
   if (str === undefined || str === "") throw new Error("str is required");
-  var mapChar = {
+  let mapChar = {
     A: "T",
     C: "G",
     T: "A",
