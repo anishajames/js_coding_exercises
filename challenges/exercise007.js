@@ -108,6 +108,31 @@ const findWinner = (board) => {
   board.filter((item) => {
     if (item.length !== 3) throw new Error("board is not valid");
   });
+
+  let newBoard = [];
+  let winner = "";
+  //set diagonal and vertical winning rows
+  board.map((items) => {
+    //diagonal
+    newBoard.push([items[0][0], items[1][1], items[2][2]]);
+    newBoard.push([items[0][2], items[1][1], items[2][0]]);
+    //vertical
+    newBoard.push([items[0][0], items[1][0], items[2][0]]);
+    newBoard.push([items[0][1], items[1][1], items[2][1]]);
+    newBoard.push([items[0][2], items[1][2], items[2][2]]);
+  });
+
+  board.push(newBoard);
+
+  function checkWinner(checkBoard, val) {
+    checkBoard.map((items) => {
+      items.map((row) => {
+        if (row.every((v) => val === v)) winner = val;
+      });
+    });
+    return winner;
+  }
+  return checkWinner(board, "0") ? "0" : checkWinner(board, "X") ? "X" : null;
 };
 
 module.exports = {

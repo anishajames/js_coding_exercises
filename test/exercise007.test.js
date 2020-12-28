@@ -344,9 +344,9 @@ describe("findWinner", () => {
   ];
 
   test("X is the winner", () => {
-    expect(findWinner(winnerX1)).toBe("x");
-    expect(findWinner(winnerX2)).toBe("x");
-    expect(findWinner(winnerX3)).toBe("x");
+    expect(findWinner(winnerX1)).toBe("X");
+    expect(findWinner(winnerX2)).toBe("X");
+    expect(findWinner(winnerX3)).toBe("X");
   });
 
   const winner01 = [
@@ -382,8 +382,8 @@ describe("findWinner", () => {
   const noWinner = [
     [
       ["X", "0", "X"],
-      ["0", "X", "X"],
-      ["X", "0", "0"],
+      ["0", "0", "X"],
+      ["X", "X", "0"],
     ],
   ];
   test("There is no winner", () => {
