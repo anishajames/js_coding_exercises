@@ -48,13 +48,8 @@ function reverseWord(word) {
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  let reverseString;
   let reversedWords = new Array();
-  for (let i = 0; i < words.length; i++) {
-    reverseString = words[i].split("");
-    reverseString.reverse();
-    reversedWords.push(reverseString.join(""));
-  }
+  words.map((word) => reversedWords.push(word.split("").reverse().join("")));
   return reversedWords;
 }
 
