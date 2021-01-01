@@ -10,7 +10,7 @@ function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
   const result = names.filter(function (name) {
-    return name.charAt(0) == char;
+    return name.charAt(0) === char;
   });
 
   return result;
@@ -62,7 +62,6 @@ function findSentencesContaining(sentences, str) {
     }
   });
   return newArr;
-
 }
 
 function getLongestSides(triangles) {
@@ -81,5 +80,5 @@ module.exports = {
   getCities,
   getSquareRoots,
   findSentencesContaining,
-  getLongestSides
+  getLongestSides,
 };
