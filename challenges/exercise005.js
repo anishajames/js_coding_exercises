@@ -1,5 +1,5 @@
 const findNextNumber = (nums, n) =>
-  nums.includes(n) && nums.indexOf(n) != nums.length - 1
+  nums.includes(n) && nums.indexOf(n) !== nums.length - 1
     ? nums[nums.indexOf(n) + 1]
     : null;
 
