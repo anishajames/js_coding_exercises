@@ -19,8 +19,7 @@ const sumMultiples = (arr) => {
  */
 const isValidDNA = (str) => {
   if (str === undefined || str === "") throw new Error("str is required");
-  if (str.toUpperCase().match(/[CGTA]/g) !== null) return true;
-  return false;
+  return str.toUpperCase().match(/[CGTA]/g) !== null;
 };
 
 /**
