@@ -13,8 +13,9 @@ function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
   const addVATPrice = (originalPrice * vatRate) / 100 + originalPrice;
-  if (addVATPrice === Math.floor(addVATPrice)) return parseFloat(addVATPrice);
-  else return parseFloat(addVATPrice.toFixed(2));
+  return addVATPrice === Math.floor(addVATPrice)
+    ? parseFloat(addVATPrice)
+    : parseFloat(addVATPrice.toFixed(2));
 }
 
 function getSalePrice(originalPrice, reduction) {
@@ -23,14 +24,14 @@ function getSalePrice(originalPrice, reduction) {
   const salePrice = parseFloat(
     originalPrice - (originalPrice * reduction) / 100
   );
-  if (salePrice === Math.floor(salePrice)) return parseFloat(salePrice);
-  else return parseFloat(salePrice.toFixed(2));
+  return salePrice === Math.floor(salePrice)
+    ? parseFloat(salePrice)
+    : parseFloat(salePrice.toFixed(2));
 }
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-  let position;
-  let length;
+  let position, length;
   if (str.length % 2 === 1) {
     position = str.length / 2;
     length = 1;
@@ -56,39 +57,30 @@ function reverseAllWords(words) {
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
   let count = 0;
-  for (let i = 0; i < users.length; i++) {
-    if (users[i].type === "Linux") {
-      count++;
-    }
-  }
+  users.filter((user) => (user.type === "Linux" ? count++ : count));
   return count;
 }
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  let sum = 0,
-    meanVal = 0;
-  for (let i = 0; i < scores.length; i++) {
-    sum += scores[i];
-  }
+  let meanVal,
+    sum = 0;
+  scores.map((score) => (sum += score));
   meanVal = sum / scores.length;
-  if (meanVal === Math.floor(meanVal)) return parseFloat(meanVal);
-  else return parseFloat(meanVal.toFixed(2));
+  return meanVal === Math.floor(meanVal)
+    ? parseFloat(meanVal)
+    : parseFloat(meanVal.toFixed(2));
 }
 
 function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
-  if (n % 3 === 0 && n % 5 === 0) {
-    return "fizzbuzz";
-  }
-  if (n % 3 === 0) {
-    return "fizz";
-  }
-  if (n % 5 === 0) {
-    return "buzz";
-  } else {
-    return n;
-  }
+  return n % 3 === 0 && n % 5 === 0
+    ? "fizzbuzz"
+    : n % 3 === 0
+    ? "fizz"
+    : n % 5 === 0
+    ? "buzz"
+    : n;
 }
 
 module.exports = {
