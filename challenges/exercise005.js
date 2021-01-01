@@ -6,9 +6,7 @@ const findNextNumber = (nums, n) =>
 const count1sand0s = (str) => {
   if (str === undefined) throw new Error("str is required");
   const occurrences = { 1: 0, 0: 0 };
-  str.split("").map((num) => {
-    occurrences[num] += 1;
-  });
+  str.split("").map((num) => (occurrences[num] += 1));
   return occurrences;
 };
 
