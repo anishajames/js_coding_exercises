@@ -15,13 +15,8 @@ function getBusNumbers(people) {
 
 function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
-  let count = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].toLowerCase() === "sheep") {
-      count++;
-    }
-  }
-  return count;
+  const sheep = arr.filter((str) => str.toLowerCase() === "sheep");
+  return sheep.length;
 }
 
 function hasMPostCode(person) {

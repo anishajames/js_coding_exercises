@@ -49,23 +49,24 @@ function reverseWord(word) {
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  let reversedWords = new Array();
-  words.map((word) => reversedWords.push(word.split("").reverse().join("")));
+  let reversedWords = [];
+  words.forEach((word) =>
+    reversedWords.push(word.split("").reverse().join(""))
+  );
   return reversedWords;
 }
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  let count = 0;
-  users.filter((user) => (user.type === "Linux" ? count++ : count));
-  return count;
+  const linuxUsers = users.filter((user) => user.type === "Linux");
+  return linuxUsers.length;
 }
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
   let meanVal,
     sum = 0;
-  scores.map((score) => (sum += score));
+  scores.forEach((score) => (sum += score));
   meanVal = sum / scores.length;
   return meanVal === Math.floor(meanVal)
     ? parseFloat(meanVal)
