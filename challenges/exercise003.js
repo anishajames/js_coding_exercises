@@ -1,6 +1,6 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  return nums.length === 0 ? nums : nums.map((num) => num * num);
+  return nums.map((num) => num * num);
 }
 
 function camelCaseWords(words) {
@@ -25,8 +25,7 @@ function getTotalSubjects(people) {
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  const chkIngredient = (item) => item.ingredients.includes(ingredient);
-  return menu.some(chkIngredient);
+  return menu.some((item) => item.ingredients.includes(ingredient));
 }
 
 function duplicateNumbers(arr1, arr2) {
